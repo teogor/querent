@@ -1,0 +1,58 @@
+site_name: Querent
+site_description: Querent lays the groundwork for your project\'s resource management, fostering consistency and efficiency across your development workflow.
+site_author: Teodor Grigor (teogor)
+site_dir: build/docs/querent
+site_url: https://github.com/teogor/querent
+edit_uri: tree/main/docs/
+
+docs_dir: docs
+
+# Navigation
+nav:
+  - 'Overview': index.md
+  - 'API Documentation': api-documentation.md
+  - 'Sponsor 🩷': sponsor.md
+  - 'Security': security.md
+
+# Repository
+repo_name: querent
+repo_url: https://github.com/teogor/querent
+
+# Configuration
+theme:
+  name: material
+  language: en
+
+  palette:
+    primary: \#815CBF
+    accent: \#8660C4
+    scheme: slate
+
+  font:
+    text: Roboto
+    code: JetBrains Mono
+
+  features:
+    - content.tabs.link
+    - content.code.copy
+    - content.code.annotate
+
+extra:
+  analytics:
+    provider: google
+    property: G-XN9N2SV8QZ
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - attr_list
+  - codehilite:
+      guess_lang: false
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.betterem
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
