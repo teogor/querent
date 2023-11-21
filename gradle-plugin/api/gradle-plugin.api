@@ -1,0 +1,319 @@
+public final class dev/teogor/querent/BuildConfig {
+	public static final field INSTANCE Ldev/teogor/querent/BuildConfig;
+	public static final field NAME Ljava/lang/String;
+	public static final field VERSION Ljava/lang/String;
+}
+
+public final class dev/teogor/querent/Plugin : org/gradle/api/Plugin {
+	public fun <init> ()V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+}
+
+public final class dev/teogor/querent/api/codegen/impl/CodeWriterImpl : dev/teogor/querent/api/codegen/CodeWriter {
+	public fun <init> (Lorg/gradle/api/Project;)V
+	public final fun component1 ()Lorg/gradle/api/Project;
+	public final fun copy (Lorg/gradle/api/Project;)Ldev/teogor/querent/api/codegen/impl/CodeWriterImpl;
+	public static synthetic fun copy$default (Ldev/teogor/querent/api/codegen/impl/CodeWriterImpl;Lorg/gradle/api/Project;ILjava/lang/Object;)Ldev/teogor/querent/api/codegen/impl/CodeWriterImpl;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getIntermediatesOutputDir ()Lorg/gradle/api/provider/Provider;
+	public fun getOutputDir (Ljava/lang/String;)Lorg/gradle/api/file/Directory;
+	public fun getProject ()Lorg/gradle/api/Project;
+	public fun getSourceOutputDir ()Lorg/gradle/api/provider/Provider;
+	public fun hashCode ()I
+	public fun setEnabled (Z)V
+	public fun toString ()Ljava/lang/String;
+}
+
+public class dev/teogor/querent/api/impl/BuildFeaturesImpl : dev/teogor/querent/api/BuildFeatures {
+	public fun <init> ()V
+	public fun getBuildProfile ()Z
+	public fun getLanguagesSchema ()Z
+	public fun getXmlResources ()Z
+	public fun setBuildProfile (Z)V
+	public fun setLanguagesSchema (Z)V
+	public fun setXmlResources (Z)V
+}
+
+public class dev/teogor/querent/api/impl/LanguagesSchemaImpl : dev/teogor/querent/api/LanguagesSchema {
+	public fun <init> (Lorg/gradle/api/Project;)V
+	public fun addSupportedLanguages (Lkotlin/jvm/functions/Function1;)V
+	public fun getSupportedLanguages ()Ljava/util/List;
+	public fun getUnqualifiedResLocale ()Ldev/teogor/xenoglot/LanguageFamily;
+	public fun setUnqualifiedResLocale (Ldev/teogor/xenoglot/LanguageFamily;)V
+}
+
+public final class dev/teogor/querent/api/impl/LanguagesSchemaImplKt {
+	public static final fun generateTagWithRegion (Ldev/teogor/xenoglot/LanguageTag;)Ljava/lang/String;
+}
+
+public abstract class dev/teogor/querent/api/impl/QuerentConfiguratorExtension : dev/teogor/querent/api/QuerentConfigurator {
+	public fun <init> (Lorg/gradle/api/Project;)V
+	public fun buildFeatures (Lkotlin/jvm/functions/Function1;)V
+	public fun getBuildFeatures ()Ldev/teogor/querent/api/BuildFeatures;
+	public fun getLanguagesSchemaOptions ()Ldev/teogor/querent/api/LanguagesSchema;
+	public fun languagesSchemaOptions (Lkotlin/jvm/functions/Function1;)V
+	public fun setBuildFeatures (Ldev/teogor/querent/api/BuildFeatures;)V
+	public fun setLanguagesSchemaOptions (Ldev/teogor/querent/api/LanguagesSchema;)V
+}
+
+public final class dev/teogor/querent/api/impl/SupportedLanguagesImpl : dev/teogor/querent/api/SupportedLanguages {
+	public fun <init> ()V
+	public fun getLanguages ()[Ldev/teogor/xenoglot/LanguageFamily;
+	public fun unaryPlus (Ldev/teogor/xenoglot/LanguageFamily;)V
+}
+
+public final class dev/teogor/querent/structures/BuildProfile : dev/teogor/querent/api/codegen/Blueprint {
+	public fun <init> (Ldev/teogor/querent/api/codegen/FoundationData;)V
+	public fun getPackageNameSuffix ()Ljava/lang/String;
+	public fun isEnabled ()Z
+	public fun onVariants (Lcom/android/build/api/variant/Variant;)V
+}
+
+public final class dev/teogor/querent/structures/BuildProfile$inlined$sam$i$org_gradle_api_Action$0 : org/gradle/api/Action {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public final synthetic fun execute (Ljava/lang/Object;)V
+}
+
+public final class dev/teogor/querent/structures/BuildProfileKt {
+	public static final fun isVirtualEnvironment ()Z
+	public static final fun toBooleanEnv (Ljava/lang/String;)Z
+}
+
+public final class dev/teogor/querent/structures/LanguagesSchema : dev/teogor/querent/api/codegen/Blueprint {
+	public fun <init> (Ldev/teogor/querent/api/codegen/FoundationData;)V
+	public fun finalizeDsl (Lcom/android/build/api/dsl/CommonExtension;)V
+	public fun getPackageNameSuffix ()Ljava/lang/String;
+	public fun isEnabled ()Z
+	public fun onVariants (Lcom/android/build/api/variant/Variant;)V
+}
+
+public final class dev/teogor/querent/structures/LanguagesSchema$inlined$sam$i$org_gradle_api_Action$0 : org/gradle/api/Action {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public final synthetic fun execute (Ljava/lang/Object;)V
+}
+
+public final class dev/teogor/querent/structures/XmlResources : dev/teogor/querent/api/codegen/Blueprint {
+	public fun <init> (Ldev/teogor/querent/api/codegen/FoundationData;)V
+	public fun getPackageNameSuffix ()Ljava/lang/String;
+	public fun isEnabled ()Z
+	public fun onVariants (Lcom/android/build/api/variant/Variant;)V
+}
+
+public final class dev/teogor/querent/structures/XmlResources$inlined$sam$i$org_gradle_api_Action$0 : org/gradle/api/Action {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public final synthetic fun execute (Ljava/lang/Object;)V
+}
+
+public abstract class dev/teogor/querent/tasks/GenerateBuildProfileFileTask : dev/teogor/querent/api/gradle/BaseTask {
+	public fun <init> ()V
+	public abstract fun getBuildType ()Lorg/gradle/api/provider/Property;
+	public abstract fun getCeresDependency ()Lorg/gradle/api/provider/Property;
+	public abstract fun getDebug ()Lorg/gradle/api/provider/Property;
+	public abstract fun getGitHashProvider ()Lorg/gradle/api/provider/Property;
+	public abstract fun getPackageId ()Lorg/gradle/api/provider/Property;
+	public abstract fun getVersionCode ()Lorg/gradle/api/provider/Property;
+	public abstract fun getVersionName ()Lorg/gradle/api/provider/Property;
+	public final fun taskAction ()V
+}
+
+public abstract class dev/teogor/querent/tasks/GenerateBuildTypesTask : dev/teogor/querent/api/gradle/BaseTask {
+	public fun <init> ()V
+	public abstract fun getBuildTypes ()Lorg/gradle/api/provider/ListProperty;
+	public final fun taskAction ()V
+}
+
+public abstract class dev/teogor/querent/tasks/GenerateLocaleConfigTask : org/gradle/api/DefaultTask {
+	public fun <init> ()V
+	public abstract fun getLanguageListInput ()Lorg/gradle/api/file/RegularFileProperty;
+	public abstract fun getLocaleConfigOutput ()Lorg/gradle/api/file/RegularFileProperty;
+	public final fun taskAction ()V
+}
+
+public abstract class dev/teogor/querent/tasks/GenerateSupportedLocalesTask : dev/teogor/querent/api/gradle/BaseTask {
+	public fun <init> ()V
+	public abstract fun getDefaultLocaleProperty ()Lorg/gradle/api/provider/Property;
+	public abstract fun getLanguageListInput ()Lorg/gradle/api/file/RegularFileProperty;
+	public final fun taskAction ()V
+}
+
+public abstract class dev/teogor/querent/tasks/GenerateValuesTask : dev/teogor/querent/api/gradle/BaseTask {
+	public fun <init> ()V
+	public abstract fun getValuesListInput ()Lorg/gradle/api/file/RegularFileProperty;
+	public final fun taskAction ()V
+}
+
+public abstract class dev/teogor/querent/tasks/SoakConfiguredLocalesTask : org/gradle/api/DefaultTask {
+	public fun <init> ()V
+	public abstract fun getLanguageTagListOutput ()Lorg/gradle/api/file/RegularFileProperty;
+	public abstract fun getResourceConfigInput ()Lorg/gradle/api/provider/SetProperty;
+	public final fun taskAction ()V
+}
+
+public abstract class dev/teogor/querent/tasks/SoakConfiguredValuesTask : dev/teogor/querent/api/gradle/BaseTask {
+	public fun <init> ()V
+	public abstract fun getLanguageTagListOutput ()Lorg/gradle/api/file/RegularFileProperty;
+	public abstract fun getResourceValues ()Lorg/gradle/api/provider/ListProperty;
+	public final fun taskAction ()V
+}
+
+public final class dev/teogor/querent/utils/DependenciesExtensionsKt {
+	public static final fun ceresBomDependency (Lorg/gradle/api/Project;)Lorg/gradle/api/artifacts/Dependency;
+	public static final fun dependencies (Lorg/gradle/api/Project;Lkotlin/jvm/functions/Function1;)V
+}
+
+public abstract class dev/teogor/querent/utils/GitHashValueSource : org/gradle/api/provider/ValueSource {
+	public fun <init> ()V
+	public synthetic fun obtain ()Ljava/lang/Object;
+	public fun obtain ()Ljava/lang/String;
+}
+
+public final class dev/teogor/querent/utils/LanguageCodeKt {
+	public static final fun convertToUnicodeLanguageTag (Ljava/lang/String;)Ljava/lang/String;
+	public static final fun isIsoValid (Ljava/lang/String;)Z
+}
+
+public final class dev/teogor/querent/utils/QuantityStrings : dev/teogor/querent/utils/Resources {
+	public static final field Companion Ldev/teogor/querent/utils/QuantityStrings$Companion;
+	public synthetic fun <init> (ILjava/lang/String;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ldev/teogor/querent/utils/QuantityStrings;
+	public static synthetic fun copy$default (Ldev/teogor/querent/utils/QuantityStrings;Ljava/lang/String;ILjava/lang/Object;)Ldev/teogor/querent/utils/QuantityStrings;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Ldev/teogor/querent/utils/QuantityStrings;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class dev/teogor/querent/utils/QuantityStrings$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ldev/teogor/querent/utils/QuantityStrings$$serializer;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ldev/teogor/querent/utils/QuantityStrings;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ldev/teogor/querent/utils/QuantityStrings;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class dev/teogor/querent/utils/QuantityStrings$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class dev/teogor/querent/utils/Resources {
+}
+
+public final class dev/teogor/querent/utils/StringArray : dev/teogor/querent/utils/Resources {
+	public static final field Companion Ldev/teogor/querent/utils/StringArray$Companion;
+	public synthetic fun <init> (ILjava/lang/String;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Ldev/teogor/querent/utils/StringArray;
+	public static synthetic fun copy$default (Ldev/teogor/querent/utils/StringArray;Ljava/lang/String;ILjava/lang/Object;)Ldev/teogor/querent/utils/StringArray;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Ldev/teogor/querent/utils/StringArray;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class dev/teogor/querent/utils/StringArray$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ldev/teogor/querent/utils/StringArray$$serializer;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ldev/teogor/querent/utils/StringArray;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ldev/teogor/querent/utils/StringArray;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class dev/teogor/querent/utils/StringArray$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class dev/teogor/querent/utils/StringExtensionsKt {
+	public static final fun capitalize (Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;
+	public static synthetic fun capitalize$default (Ljava/lang/String;Ljava/util/Locale;ILjava/lang/Object;)Ljava/lang/String;
+}
+
+public final class dev/teogor/querent/utils/StringValue : dev/teogor/querent/utils/Resources {
+	public static final field Companion Ldev/teogor/querent/utils/StringValue$Companion;
+	public synthetic fun <init> (ILjava/lang/String;Ljava/util/List;Ljava/util/List;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;Ljava/util/List;)Ldev/teogor/querent/utils/StringValue;
+	public static synthetic fun copy$default (Ldev/teogor/querent/utils/StringValue;Ljava/lang/String;Ljava/util/List;Ljava/util/List;ILjava/lang/Object;)Ldev/teogor/querent/utils/StringValue;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getArgs ()Ljava/util/List;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getPlaceholders ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Ldev/teogor/querent/utils/StringValue;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class dev/teogor/querent/utils/StringValue$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ldev/teogor/querent/utils/StringValue$$serializer;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ldev/teogor/querent/utils/StringValue;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ldev/teogor/querent/utils/StringValue;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class dev/teogor/querent/utils/StringValue$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class dev/teogor/querent/utils/Values {
+	public static final field Companion Ldev/teogor/querent/utils/Values$Companion;
+	public synthetic fun <init> (IZLjava/util/List;Ljava/lang/String;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public fun <init> (ZLjava/util/List;Ljava/lang/String;)V
+	public synthetic fun <init> (ZLjava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (ZLjava/util/List;Ljava/lang/String;)Ldev/teogor/querent/utils/Values;
+	public static synthetic fun copy$default (Ldev/teogor/querent/utils/Values;ZLjava/util/List;Ljava/lang/String;ILjava/lang/Object;)Ldev/teogor/querent/utils/Values;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCode ()Ljava/lang/String;
+	public final fun getDefault ()Z
+	public final fun getElements ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public static final synthetic fun write$Self (Ldev/teogor/querent/utils/Values;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class dev/teogor/querent/utils/Values$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Ldev/teogor/querent/utils/Values$$serializer;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ldev/teogor/querent/utils/Values;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Ldev/teogor/querent/utils/Values;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class dev/teogor/querent/utils/Values$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class dev/teogor/querent/utils/ValuesGeneratorExtensionsKt {
+	public static final fun getPlaceholders (Ljava/lang/String;)Ljava/util/List;
+	public static final fun getStrings (Ljava/io/File;)Ljava/io/File;
+	public static final fun getVariant (Ljava/io/File;)Ljava/lang/String;
+	public static final fun isDefault (Ljava/io/File;)Z
+	public static final fun resources (Ljava/io/File;Lkotlin/jvm/functions/Function1;)V
+	public static final fun values (Lorg/gradle/api/Project;)Ljava/util/List;
+	public static final fun values (Lorg/gradle/api/Project;Lkotlin/jvm/functions/Function1;)V
+}
+

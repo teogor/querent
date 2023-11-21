@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="examples.demo" target="17" />
+      <module name="examples.demo.main" target="17" />
+      <module name="examples.demo.test" target="17" />
+      <module name="gradle-plugin" target="11" />
+      <module name="gradle-plugin.api" target="11" />
+      <module name="gradle-plugin.api.main" target="11" />
+      <module name="gradle-plugin.api.test" target="11" />
+      <module name="gradle-plugin.main" target="11" />
+      <module name="gradle-plugin.querent.api" target="11" />
+      <module name="gradle-plugin.querent.api.main" target="11" />
+      <module name="gradle-plugin.querent.api.test" target="11" />
+      <module name="gradle-plugin.test" target="11" />
+      <module name="querent" target="11" />
+      <module name="querent.main" target="11" />
+      <module name="Querent.plugin" target="11" />
+      <module name="querent.plugin" target="11" />
+      <module name="querent.plugin.main" target="11" />
+      <module name="Querent.plugin.main" target="11" />
+      <module name="Querent.plugin.test" target="11" />
+      <module name="querent.plugin.test" target="11" />
+      <module name="querent.querent.api" target="11" />
+      <module name="querent.querent.api.main" target="11" />
+      <module name="querent.querent.api.test" target="11" />
+      <module name="querent.test" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

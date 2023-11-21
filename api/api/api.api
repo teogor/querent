@@ -1,0 +1,126 @@
+public abstract interface class dev/teogor/querent/api/BuildFeatures {
+	public abstract fun getBuildProfile ()Z
+	public abstract fun getLanguagesSchema ()Z
+	public abstract fun getXmlResources ()Z
+	public abstract fun setBuildProfile (Z)V
+	public abstract fun setLanguagesSchema (Z)V
+	public abstract fun setXmlResources (Z)V
+}
+
+public abstract interface class dev/teogor/querent/api/BuildProfile {
+}
+
+public abstract interface class dev/teogor/querent/api/LanguagesSchema {
+	public abstract fun addSupportedLanguages (Lkotlin/jvm/functions/Function1;)V
+	public abstract fun getSupportedLanguages ()Ljava/util/List;
+	public abstract fun getUnqualifiedResLocale ()Ldev/teogor/xenoglot/LanguageFamily;
+	public abstract fun setUnqualifiedResLocale (Ldev/teogor/xenoglot/LanguageFamily;)V
+}
+
+public abstract interface class dev/teogor/querent/api/QuerentConfigurator {
+	public abstract fun buildFeatures (Lkotlin/jvm/functions/Function1;)V
+	public abstract fun getBuildFeatures ()Ldev/teogor/querent/api/BuildFeatures;
+	public abstract fun getLanguagesSchemaOptions ()Ldev/teogor/querent/api/LanguagesSchema;
+	public abstract fun languagesSchemaOptions (Lkotlin/jvm/functions/Function1;)V
+	public abstract fun setBuildFeatures (Ldev/teogor/querent/api/BuildFeatures;)V
+	public abstract fun setLanguagesSchemaOptions (Ldev/teogor/querent/api/LanguagesSchema;)V
+}
+
+public abstract interface class dev/teogor/querent/api/SupportedLanguages {
+	public abstract fun getLanguages ()[Ldev/teogor/xenoglot/LanguageFamily;
+	public abstract fun unaryPlus (Ldev/teogor/xenoglot/LanguageFamily;)V
+}
+
+public abstract interface class dev/teogor/querent/api/XmlResources {
+}
+
+public abstract class dev/teogor/querent/api/codegen/Blueprint {
+	public field javaSources Lorg/gradle/api/file/Directory;
+	public field kotlinSources Lorg/gradle/api/file/Directory;
+	public field namespace Ljava/lang/String;
+	public field packageName Ljava/lang/String;
+	public field resSources Lorg/gradle/api/file/Directory;
+	public field resourcesSources Lorg/gradle/api/file/Directory;
+	public fun <init> (Ldev/teogor/querent/api/codegen/FoundationData;)V
+	public fun apply ()V
+	public fun finalizeDsl (Lcom/android/build/api/dsl/CommonExtension;)V
+	public final fun getApplicationComponentsExtension ()Lcom/android/build/api/variant/ApplicationAndroidComponentsExtension;
+	public final fun getDynamicFeatureComponentsExtension ()Lcom/android/build/api/variant/DynamicFeatureAndroidComponentsExtension;
+	public final fun getIntermediates ()Lorg/gradle/api/file/Directory;
+	public final fun getJavaSources ()Lorg/gradle/api/file/Directory;
+	public final fun getKotlinSources ()Lorg/gradle/api/file/Directory;
+	public final fun getLibraryComponentsExtension ()Lcom/android/build/api/variant/LibraryAndroidComponentsExtension;
+	protected final fun getLogger ()Lorg/gradle/api/logging/Logger;
+	public fun getName ()Ljava/lang/String;
+	public final fun getNamespace ()Ljava/lang/String;
+	public final fun getPackageName ()Ljava/lang/String;
+	public fun getPackageNameSuffix ()Ljava/lang/String;
+	public final fun getProject ()Lorg/gradle/api/Project;
+	public final fun getResSources ()Lorg/gradle/api/file/Directory;
+	public final fun getResourcesSources ()Lorg/gradle/api/file/Directory;
+	protected final fun getTag ()Ljava/lang/String;
+	public fun isEnabled ()Z
+	public final fun java (Ljava/lang/String;)Lorg/gradle/api/file/Directory;
+	public final fun kotlin (Ljava/lang/String;)Lorg/gradle/api/file/Directory;
+	public final fun onCreate ()V
+	public fun onVariants (Lcom/android/build/api/variant/Variant;)V
+	public final fun res (Ljava/lang/String;)Lorg/gradle/api/file/Directory;
+	public final fun resources (Ljava/lang/String;)Lorg/gradle/api/file/Directory;
+	public final fun setJavaSources (Lorg/gradle/api/file/Directory;)V
+	public final fun setKotlinSources (Lorg/gradle/api/file/Directory;)V
+	public final fun setNamespace (Ljava/lang/String;)V
+	public final fun setPackageName (Ljava/lang/String;)V
+	public final fun setResSources (Lorg/gradle/api/file/Directory;)V
+	public final fun setResourcesSources (Lorg/gradle/api/file/Directory;)V
+}
+
+public abstract interface class dev/teogor/querent/api/codegen/CodeWriter {
+	public abstract fun getIntermediatesOutputDir ()Lorg/gradle/api/provider/Provider;
+	public abstract fun getOutputDir (Ljava/lang/String;)Lorg/gradle/api/file/Directory;
+	public abstract fun getProject ()Lorg/gradle/api/Project;
+	public abstract fun getSourceOutputDir ()Lorg/gradle/api/provider/Provider;
+	public abstract fun setEnabled (Z)V
+}
+
+public final class dev/teogor/querent/api/codegen/FoundationData {
+	public fun <init> (Lorg/gradle/api/Project;Ldev/teogor/querent/api/codegen/CodeWriter;)V
+	public final fun component1 ()Lorg/gradle/api/Project;
+	public final fun component2 ()Ldev/teogor/querent/api/codegen/CodeWriter;
+	public final fun copy (Lorg/gradle/api/Project;Ldev/teogor/querent/api/codegen/CodeWriter;)Ldev/teogor/querent/api/codegen/FoundationData;
+	public static synthetic fun copy$default (Ldev/teogor/querent/api/codegen/FoundationData;Lorg/gradle/api/Project;Ldev/teogor/querent/api/codegen/CodeWriter;ILjava/lang/Object;)Ldev/teogor/querent/api/codegen/FoundationData;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCodeWriter ()Ldev/teogor/querent/api/codegen/CodeWriter;
+	public final fun getProject ()Lorg/gradle/api/Project;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract class dev/teogor/querent/api/gradle/BaseTask : org/gradle/api/DefaultTask {
+	public fun <init> ()V
+	public final fun fileSpec (Ljava/lang/String;Lkotlin/jvm/functions/Function1;)V
+	public final fun generate (Lcom/squareup/kotlinpoet/FileSpec;)V
+	public abstract fun getModuleName ()Lorg/gradle/api/provider/Property;
+	public abstract fun getOutputDir ()Lorg/gradle/api/file/DirectoryProperty;
+	public abstract fun getPackageDetails ()Lorg/gradle/api/provider/Property;
+	public abstract fun getPackageName ()Lorg/gradle/api/provider/Property;
+	protected final fun getType ()Ldev/teogor/querent/api/models/PackageDetails;
+	public final fun type (Ljava/lang/String;Ljava/lang/String;)Lcom/squareup/kotlinpoet/ClassName;
+}
+
+public final class dev/teogor/querent/api/models/PackageDetails : java/io/Serializable {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Ldev/teogor/querent/api/models/PackageDetails;
+	public static synthetic fun copy$default (Ldev/teogor/querent/api/models/PackageDetails;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ldev/teogor/querent/api/models/PackageDetails;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getNamespace ()Ljava/lang/String;
+	public final fun getPackageName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class dev/teogor/querent/api/utils/GradleExtensionsKt {
+	public static final fun dir (Lorg/gradle/api/provider/Provider;Ljava/lang/String;)Lorg/gradle/api/file/Directory;
+}
+
