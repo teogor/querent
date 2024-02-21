@@ -2,14 +2,18 @@ import com.diffplug.spotless.LineEnding
 import com.vanniktech.maven.publish.SonatypeHost
 import dev.teogor.winds.api.MavenPublish
 import dev.teogor.winds.api.getValue
+import dev.teogor.winds.api.model.Contributor
+import dev.teogor.winds.api.model.DependencyType
 import dev.teogor.winds.api.model.Developer
+import dev.teogor.winds.api.model.IssueManagement
 import dev.teogor.winds.api.model.LicenseType
 import dev.teogor.winds.api.model.createVersion
 import dev.teogor.winds.api.provider.Scm
+import dev.teogor.winds.gradle.tasks.impl.subprojectChildrens
 import dev.teogor.winds.gradle.utils.afterWindsPluginConfiguration
 import dev.teogor.winds.gradle.utils.attachTo
-import org.gradle.internal.classpath.Instrumented.systemProperties
 import org.jetbrains.dokka.gradle.DokkaPlugin
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
   repositories {
@@ -20,20 +24,32 @@ buildscript {
 
 // Lists all plugins used throughout the project without applying them.
 plugins {
-  alias(libs.plugins.kotlin.jvm) apply false
+  alias(libs.plugins.kotlin.jvm) apply true
   alias(libs.plugins.kotlin.serialization) apply false
 
-  alias(libs.plugins.winds) apply true
+  alias(libs.plugins.teogor.winds) apply true
   alias(libs.plugins.vanniktech.maven) apply true
   alias(libs.plugins.dokka) apply true
   alias(libs.plugins.spotless) apply true
   alias(libs.plugins.api.validator) apply true
 }
 
-// Explicitly set the group and version for all subprojects
-subprojects {
-  group = "dev.teogor.querent"
-  version = "1.0.0-alpha01"
+subprojectChildrens {
+  val javaVersion = JavaVersion.VERSION_17
+  java {
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+  }
+
+  val compileKotlin: KotlinCompile by tasks
+  compileKotlin.kotlinOptions {
+    jvmTarget = javaVersion.toString()
+  }
+
+  val compileTestKotlin: KotlinCompile by tasks
+  compileTestKotlin.kotlinOptions {
+    jvmTarget = javaVersion.toString()
+  }
 }
 
 winds {
@@ -60,10 +76,6 @@ winds {
       alphaRelease(1)
     }
 
-    // TODO winds
-    //  required by dokka
-    project.version = version!!.toString()
-
     inceptionYear = 2023
 
     sourceControlManagement(
@@ -86,6 +98,9 @@ winds {
 }
 
 afterWindsPluginConfiguration { winds ->
+  group = winds.mavenPublish.groupId ?: "undefined"
+  version = winds.mavenPublish.version ?: "undefined"
+
   if (!plugins.hasPlugin("com.gradle.plugin-publish")) {
     val mavenPublish: MavenPublish by winds
     if (mavenPublish.canBePublished) {

@@ -13,24 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
   `kotlin-dsl`
 
-  alias(libs.plugins.winds)
-}
-
-val javaVersion = JavaVersion.VERSION_11
-java {
-  sourceCompatibility = javaVersion
-  targetCompatibility = javaVersion
-}
-
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions {
-  languageVersion = "1.8"
-  jvmTarget = javaVersion.toString()
+  alias(libs.plugins.teogor.winds)
 }
 
 dependencies {

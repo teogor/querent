@@ -14,7 +14,7 @@ kotlinx-serialization-json = "1.5.1"
 ksp = "1.9.0-1.0.13"
 spotless = "6.20.0"
 vanniktech-maven-plugin = "0.25.3"
-winds = "1.0.0-alpha03"
+teogor-winds = "1.0.0-beta02"
 xenoglot-bom = "1.0.0-alpha01"
 
 [libraries]
@@ -45,6 +45,6 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 vanniktech-maven = { id = "com.vanniktech.maven.publish", version.ref = "vanniktech-maven-plugin" }
-winds = { id = "dev.teogor.winds", version.ref = "winds" }
+teogor-winds = { id = "dev.teogor.winds", version.ref = "teogor-winds" }
 
 [bundles]
