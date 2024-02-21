@@ -14,27 +14,13 @@
  * limitations under the License.
  */
 
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
   `kotlin-dsl`
   alias(libs.plugins.gradle.publish)
   alias(libs.plugins.build.config)
   alias(libs.plugins.kotlin.serialization)
 
-  alias(libs.plugins.winds)
-}
-
-val javaVersion = JavaVersion.VERSION_11
-java {
-  sourceCompatibility = javaVersion
-  targetCompatibility = javaVersion
-}
-
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions {
-  languageVersion = "1.8"
-  jvmTarget = javaVersion.toString()
+  alias(libs.plugins.teogor.winds)
 }
 
 dependencies {
@@ -79,6 +65,8 @@ winds {
 buildConfig {
   packageName("dev.teogor.querent")
 
-  buildConfigField("String", "NAME", "\"${group}\"")
-  buildConfigField("String", "VERSION", "\"${version}\"")
+  afterEvaluate {
+    buildConfigField("String", "NAME", "\"${group}\"")
+    buildConfigField("String", "VERSION", "\"${version}\"")
+  }
 }
