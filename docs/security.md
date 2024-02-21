@@ -5,12 +5,11 @@
 Please refer to this table to see which versions of the project are currently receiving security
 updates:
 
-| Version | Supported          |
-|---------|--------------------|
-| Release | ✅                 |
-| ALPHA   | ❌                 |
-| BETA    | ❌                 |
-
+| Version | Supported |
+|:-------:|:---------:|
+| STABLE  |     ✅     |
+|  ALPHA  |     ❌     |
+|  BETA   |     ❌     |
 
 ## Reporting a Vulnerability
 
@@ -21,7 +20,8 @@ If you discover a security vulnerability within this project, please follow thes
 
 2. **Contact Us:** Report the vulnerability to us by sending an email
    to [open-source@teogor.dev](mailto:open-source@teogor.dev). You can encrypt sensitive information
-   using our [PGP key](https://source.teogor.dev/security/pgp-key) to ensure the confidentiality of the report.
+   using our [PGP key](https://source.teogor.dev/security/pgp-key) to ensure the confidentiality of
+   the report.
 
 3. **Provide Details:** Please provide us with detailed information about the vulnerability,
    including steps to reproduce, affected versions, and potential impact.

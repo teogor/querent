@@ -1,4 +1,4 @@
-## API Documentation
+## Reference
 
 Welcome to the comprehensive API documentation for our project, meticulously crafted to empower you to
 effectively utilize its capabilities. This guide provides detailed information about the project's
@@ -10,13 +10,11 @@ Our project encompasses a suite of modules, each designed to address specific fu
 the overall developer experience. To delve into the intricacies of each module, refer to the dedicated
 documentation pages:
 
-- **[Querent 🔗](../documentation):** Discover the heart of our project.
+### API Reference
 
-- **[API 🔗](../documentation/api):** Navigate directly to the code-specific documentation for the project's
-`:api` module
-
-- **[Plugin 🔗](../documentation/gradle-plugin):** Navigate directly to the code-specific documentation for
-the project's `:gradle-plugin` module
+* [`dev.teogor.querent`](../html/){:target="_blank"}
+* [`dev.teogor.querent:api`](../html/api){:target="_blank"}
+* [`dev.teogor.querent:gradle-plugin`](../html/gradle-plugin){:target="_blank"}
 
 ### Contributions and Support
 
