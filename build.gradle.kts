@@ -69,7 +69,7 @@ winds {
     url = "https://source.teogor.dev/querent"
 
     version = createVersion(1, 0, 0) {
-      alphaRelease(1)
+      alphaRelease(2)
     }
 
     project.group = winds.mavenPublish.groupId ?: "undefined"
@@ -97,6 +97,9 @@ winds {
 }
 
 afterWindsPluginConfiguration { winds ->
+  project.group = winds.mavenPublish.groupId ?: "undefined"
+  project.version = winds.mavenPublish.version ?: "undefined"
+
   if (!plugins.hasPlugin("com.gradle.plugin-publish")) {
     val mavenPublish: MavenPublish by winds
     if (mavenPublish.canBePublished) {
