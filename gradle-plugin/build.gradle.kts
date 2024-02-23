@@ -14,17 +14,27 @@
  * limitations under the License.
  */
 
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+tasks.withType<KotlinCompile> {
+  compilerOptions.freeCompilerArgs.add("-Xjvm-default=all-compatibility")
+}
+
 plugins {
   `kotlin-dsl`
   alias(libs.plugins.gradle.publish)
   alias(libs.plugins.build.config)
-  alias(libs.plugins.kotlin.serialization)
+  alias(libs.plugins.jetbrains.kotlin.serialization)
 
   alias(libs.plugins.teogor.winds)
 }
 
 dependencies {
   api(project(":api"))
+
+  compileOnly(libs.kotlin.gradle.plugin)
+  compileOnly(libs.kotlin.gradle.plugin.api)
+  compileOnly(libs.kotlin.compiler.embeddable)
 
   implementation(gradleApi())
   implementation(libs.android.gradle.plugin)

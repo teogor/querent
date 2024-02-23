@@ -12,6 +12,7 @@ dependencyResolutionManagement {
   repositories {
     google()
     mavenCentral()
+    maven("https://androidx.dev/storage/compose-compiler/repository/")
   }
 }
 
@@ -21,4 +22,4 @@ include("api")
 include("gradle-plugin")
 
 // Pre-Built
-// includeBuild("examples")
+includeBuild("examples")
