@@ -30,7 +30,7 @@ plugins {
 }
 
 dependencies {
-  api(project(":api"))
+  api(project(":gradle-plugin-api"))
 
   compileOnly(libs.kotlin.gradle.plugin)
   compileOnly(libs.kotlin.gradle.plugin.api)

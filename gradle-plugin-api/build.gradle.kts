@@ -35,7 +35,7 @@ dependencies {
 
 winds {
   mavenPublish {
-    displayName = "API"
-    name = "api"
+    displayName = "Gradle Plugin API"
+    name = "gradle-plugin-api"
   }
 }

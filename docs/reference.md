@@ -13,8 +13,8 @@ documentation pages:
 ### API Reference
 
 * [`dev.teogor.querent`](../html/){:target="_blank"}
-* [`dev.teogor.querent:api`](../html/api){:target="_blank"}
 * [`dev.teogor.querent:gradle-plugin`](../html/gradle-plugin){:target="_blank"}
+* [`dev.teogor.querent:gradle-plugin-api`](../html/gradle-plugin-api){:target="_blank"}
 
 ### Contributions and Support
 

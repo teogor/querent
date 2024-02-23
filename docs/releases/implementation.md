@@ -28,7 +28,7 @@ libraries, in TOML format.
     teogor-querent = "1.0.0-alpha01"
 
     [libraries]
-    teogor-querent-api = { module = "dev.teogor.querent:querent-api", version.ref = "teogor-querent" }
+    teogor-querent-gradle-api = { module = "dev.teogor.querent:gradle-plugin-api", version.ref = "teogor-querent" }
 
     [plugins]
     teogor-querent = { id = "dev.teogor.querent", version.ref = "teogor-querent" }
@@ -45,7 +45,7 @@ libraries, in TOML format.
 
     dependencies {
       // Option - Not Required
-      implementation(libs.teogor.querent.api)
+      implementation(libs.teogor.querent.gradle.api)
     }
     ```
 
@@ -56,6 +56,6 @@ libraries, in TOML format.
 
     dependencies {
       // Option - Not Required
-      implementation libs.teogor.querent.api
+      implementation libs.teogor.querent.gradle.api
     }
     ```
