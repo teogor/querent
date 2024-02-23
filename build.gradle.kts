@@ -2,10 +2,7 @@ import com.diffplug.spotless.LineEnding
 import com.vanniktech.maven.publish.SonatypeHost
 import dev.teogor.winds.api.MavenPublish
 import dev.teogor.winds.api.getValue
-import dev.teogor.winds.api.model.Contributor
-import dev.teogor.winds.api.model.DependencyType
 import dev.teogor.winds.api.model.Developer
-import dev.teogor.winds.api.model.IssueManagement
 import dev.teogor.winds.api.model.LicenseType
 import dev.teogor.winds.api.model.createVersion
 import dev.teogor.winds.api.provider.Scm
@@ -24,14 +21,13 @@ buildscript {
 
 // Lists all plugins used throughout the project without applying them.
 plugins {
-  alias(libs.plugins.kotlin.jvm) apply true
-  alias(libs.plugins.kotlin.serialization) apply false
-
+  alias(libs.plugins.jetbrains.kotlin.jvm) apply true
+  alias(libs.plugins.jetbrains.kotlin.serialization) apply false
+  alias(libs.plugins.jetbrains.dokka) apply true
+  alias(libs.plugins.jetbrains.api.validator) apply true
   alias(libs.plugins.teogor.winds) apply true
-  alias(libs.plugins.vanniktech.maven) apply true
-  alias(libs.plugins.dokka) apply true
   alias(libs.plugins.spotless) apply true
-  alias(libs.plugins.api.validator) apply true
+  alias(libs.plugins.vanniktech.maven) apply true
 }
 
 subprojectChildrens {
@@ -76,6 +72,9 @@ winds {
       alphaRelease(1)
     }
 
+    project.group = winds.mavenPublish.groupId ?: "undefined"
+    project.version = winds.mavenPublish.version ?: "undefined"
+
     inceptionYear = 2023
 
     sourceControlManagement(
@@ -98,9 +97,6 @@ winds {
 }
 
 afterWindsPluginConfiguration { winds ->
-  group = winds.mavenPublish.groupId ?: "undefined"
-  version = winds.mavenPublish.version ?: "undefined"
-
   if (!plugins.hasPlugin("com.gradle.plugin-publish")) {
     val mavenPublish: MavenPublish by winds
     if (mavenPublish.canBePublished) {
@@ -149,9 +145,9 @@ subprojects {
         target("**/*.kt")
         targetExclude("**/build/**/*.kt")
         ktlint(ktlintVersion)
-          .userData(
+          .editorConfigOverride(
             mapOf(
-              "ktlint_code_style" to "official",
+              "ktlint_code_style" to "ktlint_official",
               "ij_kotlin_allow_trailing_comma" to "true",
               // These rules were introduced in ktlint 0.46.0 and should not be
               // enabled without further discussion. They are disabled for now.

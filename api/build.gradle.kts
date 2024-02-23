@@ -22,9 +22,9 @@ plugins {
 
 dependencies {
   // Xenoglot BoM
-  api(platform(libs.xenoglot.bom))
+  api(platform(libs.teogor.xenoglot.bom))
   // Xenoglot Libraries
-  api(libs.xenoglot.core)
+  api(libs.teogor.xenoglot.core)
 
   api(libs.androidx.annotation)
   api(libs.android.gradle.plugin)
