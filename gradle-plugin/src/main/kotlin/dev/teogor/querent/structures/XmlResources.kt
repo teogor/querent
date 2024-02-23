@@ -86,7 +86,7 @@ class XmlResources(data: FoundationData) : Blueprint(data) {
     }
 
     val generateSupportedLocalesTaskProvider = project.tasks.register<GenerateValuesTask>(
-      "generateValues${variant.name.capitalized()}",
+      "generateComposeResourcesForLocale${variant.name.capitalized()}",
     ) {
       valuesListInput.set(languageListTaskProvider.flatMap { it.languageTagListOutput })
       outputDir.set(kotlin)
