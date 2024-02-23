@@ -18,6 +18,7 @@ sizes and difficulty levels.
 
 |   Latest Update   | Stable Release | Beta Release | Alpha Release |
 |:-----------------:|:--------------:|:------------:|:-------------:|
+| February 23, 2023 |       -        |      -       | 1.0.0-alpha02 |
 | November 27, 2023 |       -        |      -       | 1.0.0-alpha01 |
 
 ### Declaring dependencies
@@ -31,7 +32,7 @@ Add the dependencies for the artifacts you need in the `build.gradle` file for y
 
     ```kotlin
     plugins {
-      id("dev.teogor.querent") version "1.0.0-alpha01"
+      id("dev.teogor.querent") version "1.0.0-alpha02"
     }
 
     repositories {
@@ -39,7 +40,7 @@ Add the dependencies for the artifacts you need in the `build.gradle` file for y
     }
 
     dependencies {
-      implementation("dev.teogor.querent:gradle-plugin-api:1.0.0-alpha01")
+      implementation("dev.teogor.querent:gradle-plugin-api:1.0.0-alpha02")
     }
     ```
 
@@ -47,7 +48,7 @@ Add the dependencies for the artifacts you need in the `build.gradle` file for y
 
     ```groovy
     plugins {
-      id 'dev.teogor.querent' version '1.0.0-alpha01'
+      id 'dev.teogor.querent' version '1.0.0-alpha02'
     }
 
     repositories {
@@ -55,7 +56,7 @@ Add the dependencies for the artifacts you need in the `build.gradle` file for y
     }
 
     dependencies {
-      implementation 'dev.teogor.querent:gradle-plugin-api:1.0.0-alpha01'
+      implementation 'dev.teogor.querent:gradle-plugin-api:1.0.0-alpha02'
     }
     ```
 
@@ -70,6 +71,26 @@ existing issue by clicking the star button.
 [Create a new issue](https://github.com/teogor/querent/issues/new){ .md-button }
 
 ### Version 1.0.0
+
+#### Version 1.0.0-alpha02
+
+February 23, 2024
+
+`dev.teogor.querent:querent-*:1.0.0-alpha02` is
+released. [Version 1.0.0-alpha02 contains these commits.](https://github.com/teogor/querent/compare/1.0.0-alpha01...1.0.0-alpha02)
+
+**Bug Fixes**
+
+* Introduce dependency on generated compose resources task for preBuild
+  phase ([#11](https://github.com/teogor/querent/pull/11)) by [@teogor](https://github.com/teogor)
+* Introduce API level 26 requirements for `systemZoneOffset`
+  and `buildLocalDateTime` ([#9](https://github.com/teogor/querent/pull/9))
+  by [@teogor](https://github.com/teogor)
+
+**Others**
+
+* Migrate to Java 17 ([#6](https://github.com/teogor/querent/pull/6))
+  by [@teogor](https://github.com/teogor)
 
 #### Version 1.0.0-alpha01
 
