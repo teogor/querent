@@ -16,6 +16,8 @@
 
 package dev.teogor.querent.tasks
 
+import androidx.annotation.RequiresApi
+import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.CodeBlock
 import com.squareup.kotlinpoet.FunSpec
 import com.squareup.kotlinpoet.KModifier
@@ -38,6 +40,7 @@ abstract class GenerateBuildProfileFileTask : BaseTask() {
 
   private val BuildVariant by lazy { packageName.get() type "BuildVariant" }
   private val BuildProfiler by lazy { "dev.teogor.ceres.core.register" type "BuildProfiler" }
+  private val ANDROID_OS_BUILD by lazy { "android.os" type "Build" }
 
   @get:Input
   abstract val debug: Property<Boolean>
@@ -177,6 +180,14 @@ abstract class GenerateBuildProfileFileTask : BaseTask() {
     )
     .getter(
       FunSpec.getterBuilder()
+        .addAnnotation(
+          AnnotationSpec.builder(RequiresApi::class)
+            .addMember(
+              "%T.VERSION_CODES.O",
+              ANDROID_OS_BUILD,
+            )
+            .build(),
+        )
         .addCode(
           "return %T.systemDefault().rules.getOffset(%T.now())",
           ZoneId::class,
@@ -199,6 +210,14 @@ abstract class GenerateBuildProfileFileTask : BaseTask() {
     )
     .getter(
       FunSpec.getterBuilder()
+        .addAnnotation(
+          AnnotationSpec.builder(RequiresApi::class)
+            .addMember(
+              "%T.VERSION_CODES.O",
+              ANDROID_OS_BUILD,
+            )
+            .build(),
+        )
         .addCode(
           "return %T.ofEpochSecond(buildTime, 0, systemZoneOffset)",
           LocalDateTime::class,
