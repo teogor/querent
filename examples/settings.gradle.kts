@@ -1,11 +1,18 @@
 pluginManagement {
   includeBuild("..\\")
   repositories {
-    google()
+    google {
+      content {
+        includeGroupByRegex("com\\.android.*")
+        includeGroupByRegex("com\\.google.*")
+        includeGroupByRegex("androidx.*")
+      }
+    }
     mavenCentral()
     gradlePluginPortal()
   }
 }
+
 @Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
   repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -21,4 +28,5 @@ dependencyResolutionManagement {
   }
 }
 
-// include("demo")
+include("demo")
+include("android-app")
