@@ -22,11 +22,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/api" />
             <option value="$PROJECT_DIR$/examples" />
             <option value="$PROJECT_DIR$/examples/android-app" />
             <option value="$PROJECT_DIR$/examples/demo" />
             <option value="$PROJECT_DIR$/gradle-plugin" />
+            <option value="$PROJECT_DIR$/gradle-plugin-api" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

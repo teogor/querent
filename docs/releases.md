@@ -11,8 +11,8 @@ sizes and difficulty levels.
 ### API Reference
 
 * [`dev.teogor.querent`](../html/){:target="_blank"}
-* [`dev.teogor.querent:api`](../html/api){:target="_blank"}
 * [`dev.teogor.querent:gradle-plugin`](../html/gradle-plugin){:target="_blank"}
+* [`dev.teogor.querent:gradle-plugin-api`](../html/gradle-plugin-api){:target="_blank"}
 
 ### Release
 
@@ -39,7 +39,7 @@ Add the dependencies for the artifacts you need in the `build.gradle` file for y
     }
 
     dependencies {
-      implementation("dev.teogor.querent:querent-api:1.0.0-alpha01")
+      implementation("dev.teogor.querent:gradle-plugin-api:1.0.0-alpha01")
     }
     ```
 
@@ -55,7 +55,7 @@ Add the dependencies for the artifacts you need in the `build.gradle` file for y
     }
 
     dependencies {
-      implementation 'dev.teogor.querent:querent-api:1.0.0-alpha01'
+      implementation 'dev.teogor.querent:gradle-plugin-api:1.0.0-alpha01'
     }
     ```
 
