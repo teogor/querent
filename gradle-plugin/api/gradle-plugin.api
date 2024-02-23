@@ -175,7 +175,6 @@ public final class dev/teogor/querent/utils/LanguageCodeKt {
 
 public final class dev/teogor/querent/utils/QuantityStrings : dev/teogor/querent/utils/Resources {
 	public static final field Companion Ldev/teogor/querent/utils/QuantityStrings$Companion;
-	public synthetic fun <init> (ILjava/lang/String;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public fun <init> (Ljava/lang/String;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun copy (Ljava/lang/String;)Ldev/teogor/querent/utils/QuantityStrings;
@@ -184,7 +183,6 @@ public final class dev/teogor/querent/utils/QuantityStrings : dev/teogor/querent
 	public final fun getId ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Ldev/teogor/querent/utils/QuantityStrings;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class dev/teogor/querent/utils/QuantityStrings$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
@@ -207,7 +205,6 @@ public abstract interface class dev/teogor/querent/utils/Resources {
 
 public final class dev/teogor/querent/utils/StringArray : dev/teogor/querent/utils/Resources {
 	public static final field Companion Ldev/teogor/querent/utils/StringArray$Companion;
-	public synthetic fun <init> (ILjava/lang/String;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public fun <init> (Ljava/lang/String;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun copy (Ljava/lang/String;)Ldev/teogor/querent/utils/StringArray;
@@ -216,7 +213,6 @@ public final class dev/teogor/querent/utils/StringArray : dev/teogor/querent/uti
 	public final fun getId ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Ldev/teogor/querent/utils/StringArray;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class dev/teogor/querent/utils/StringArray$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
@@ -241,7 +237,6 @@ public final class dev/teogor/querent/utils/StringExtensionsKt {
 
 public final class dev/teogor/querent/utils/StringValue : dev/teogor/querent/utils/Resources {
 	public static final field Companion Ldev/teogor/querent/utils/StringValue$Companion;
-	public synthetic fun <init> (ILjava/lang/String;Ljava/util/List;Ljava/util/List;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/util/List;)V
 	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
@@ -255,7 +250,6 @@ public final class dev/teogor/querent/utils/StringValue : dev/teogor/querent/uti
 	public final fun getPlaceholders ()Ljava/util/List;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Ldev/teogor/querent/utils/StringValue;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class dev/teogor/querent/utils/StringValue$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
@@ -275,7 +269,6 @@ public final class dev/teogor/querent/utils/StringValue$Companion {
 
 public final class dev/teogor/querent/utils/Values {
 	public static final field Companion Ldev/teogor/querent/utils/Values$Companion;
-	public synthetic fun <init> (IZLjava/util/List;Ljava/lang/String;Lkotlinx/serialization/internal/SerializationConstructorMarker;)V
 	public fun <init> (ZLjava/util/List;Ljava/lang/String;)V
 	public synthetic fun <init> (ZLjava/util/List;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Z
@@ -289,7 +282,6 @@ public final class dev/teogor/querent/utils/Values {
 	public final fun getElements ()Ljava/util/List;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
-	public static final synthetic fun write$Self (Ldev/teogor/querent/utils/Values;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
 }
 
 public final class dev/teogor/querent/utils/Values$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
