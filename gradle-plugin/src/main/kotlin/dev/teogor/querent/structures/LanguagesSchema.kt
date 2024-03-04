@@ -80,7 +80,7 @@ class LanguagesSchema(data: FoundationData) : Blueprint(data) {
     ) {
       languageListInput.set(languageListTaskProvider.flatMap { it.languageTagListOutput })
       localeConfigOutput.set(
-        res.file("/xml/locale_config.xml"),
+        res.file("xml/locale_config.xml"),
       )
     }
 
