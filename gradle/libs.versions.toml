@@ -1,63 +1,66 @@
 [versions]
 activity-compose = "1.8.2"
-agp = "8.2.2"
-android-gradle-plugin = "8.1.4"
-androidx-annotation = "1.7.1"
-api-validator = "0.14.0"
-build-config = "3.1.0"
-compose-bom = "2024.02.00"
+agp = "8.3.2"
+android-gradle-plugin = "8.5.0-alpha05"
+androidx-annotation = "1.8.0-beta01"
+api-validator = "0.15.0-Beta.2"
+ben-manes-versions = "0.51.0"
+build-config = "5.3.5"
+compose-bom = "2024.04.00"
 core-ktx = "1.12.0"
-dokka = "1.9.10"
+dokka = "1.9.20"
 espresso-core = "3.5.1"
-gradle-publish = "1.1.0"
+gradle-publish = "1.2.1"
 gson = "2.10.1"
 jdom2 = "2.0.6.1"
-junit-version = "1.1.5"
 junit = "4.13.2"
-kotlin-poet = "1.14.2"
+junit-version = "1.1.5"
+kotlin = "2.0.0-RC1"
+kotlin-poet = "1.16.0"
 kotlin-xml-builder = "1.9.1"
-kotlin = "1.9.22"
-kotlinx-serialization-json = "1.6.2"
-ksp = "1.9.22-1.0.17"
+kotlinx-serialization-json = "1.6.3"
+ksp = "2.0.0-RC1-1.0.20"
 lifecycle-runtime-ktx = "2.7.0"
+littlerobots-version-catalog-update = "0.8.4"
 spotless = "6.25.0"
-teogor-winds = "1.0.0-beta02"
+teogor-winds = "1.0.0"
 teogor-xenoglot-bom = "1.0.0-alpha01"
-vanniktech-maven-plugin = "0.27.0"
+vanniktech-maven-plugin = "0.28.0"
 
 [libraries]
-android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "android-gradle-plugin" }
-androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
-androidx-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "androidx-annotation" }
-androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit-version" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
-androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
-androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
-androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-androidx-ui = { group = "androidx.compose.ui", name = "ui" }
-gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+android-gradle-plugin = { module = "com.android.tools.build:gradle", version.ref = "android-gradle-plugin" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
+androidx-annotation = { module = "androidx.annotation:annotation", version.ref = "androidx-annotation" }
+androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
+androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso-core" }
+androidx-junit = { module = "androidx.test.ext:junit", version.ref = "junit-version" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+androidx-material3 = { module = "androidx.compose.material3:material3" }
+androidx-ui = { module = "androidx.compose.ui:ui" }
+androidx-ui-graphics = { module = "androidx.compose.ui:ui-graphics" }
+androidx-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4" }
+androidx-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
+androidx-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+androidx-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 jdom2 = { module = "org.jdom:jdom2", version.ref = "jdom2" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
+junit = { module = "junit:junit", version.ref = "junit" }
 kotlin-compiler-embeddable = { module = "org.jetbrains.kotlin:kotlin-compiler-embeddable", version.ref = "kotlin" }
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 kotlin-gradle-plugin-api = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin-api", version.ref = "kotlin" }
-kotlin-poet = { group = "com.squareup", name = "kotlinpoet", version.ref = "kotlin-poet" }
+kotlin-poet = { module = "com.squareup:kotlinpoet", version.ref = "kotlin-poet" }
 kotlin-xml-builder = { module = "org.redundent:kotlin-xml-builder", version.ref = "kotlin-xml-builder" }
-kotlinx-serialization-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-core", version.ref = "kotlinx-serialization-json" }
-kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
-ksp-gradle-plugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
-teogor-xenoglot-android = { group = "dev.teogor.xenoglot", name = "android" }
-teogor-xenoglot-bom = { group = "dev.teogor.xenoglot", name = "bom", version.ref = "teogor-xenoglot-bom" }
-teogor-xenoglot-core = { group = "dev.teogor.xenoglot", name = "core" }
+kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlinx-serialization-json" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
+ksp-gradle-plugin = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+symbol-processing-api = { module = "com.google.devtools.ksp:symbol-processing-api", version.ref = "ksp" }
+teogor-xenoglot-bom = { module = "dev.teogor.xenoglot:bom", version.ref = "teogor-xenoglot-bom" }
+teogor-xenoglot-core = { module = "dev.teogor.xenoglot:core" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
+ben-manes-versions = { id = "com.github.ben-manes.versions", version.ref = "ben-manes-versions" }
 build-config = { id = "com.github.gmazzo.buildconfig", version.ref = "build-config" }
 gradle-publish = { id = "com.gradle.plugin-publish", version.ref = "gradle-publish" }
 jetbrains-api-validator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "api-validator" }
@@ -65,6 +68,7 @@ jetbrains-dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 jetbrains-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+littlerobots-version-catalog-update = { id = "nl.littlerobots.version-catalog-update", version.ref = "littlerobots-version-catalog-update" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 teogor-winds = { id = "dev.teogor.winds", version.ref = "teogor-winds" }
 vanniktech-maven = { id = "com.vanniktech.maven.publish", version.ref = "vanniktech-maven-plugin" }

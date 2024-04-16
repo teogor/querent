@@ -1,9 +1,3 @@
-public final class dev/teogor/querent/BuildConfig {
-	public static final field INSTANCE Ldev/teogor/querent/BuildConfig;
-	public static final field NAME Ljava/lang/String;
-	public static final field VERSION Ljava/lang/String;
-}
-
 public final class dev/teogor/querent/Plugin : org/gradle/api/Plugin {
 	public fun <init> ()V
 	public synthetic fun apply (Ljava/lang/Object;)V
