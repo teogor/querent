@@ -66,9 +66,10 @@ gradlePlugin {
 }
 
 winds {
-  mavenPublish {
-    displayName = "Gradle Plugin"
-    name = "gradle-plugin"
+  moduleMetadata {
+    artifactDescriptor {
+      name = "Gradle Plugin"
+    }
   }
 }
 

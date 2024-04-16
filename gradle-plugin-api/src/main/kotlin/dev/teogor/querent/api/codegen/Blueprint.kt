@@ -374,7 +374,7 @@ abstract class Blueprint(
    * The method is responsible for enabling the code writer if the blueprint
    * is enabled, and setting the namespace and package name for the blueprint.
    */
-  private fun CommonExtension<*, *, *, *, *>.onFinalizeDsl() {
+  private fun CommonExtension<*, *, *, *, *, *>.onFinalizeDsl() {
     codeWriter.setEnabled(isEnabled())
 
     logger.quiet("[$tag] ApplicationExtension::${extension<ApplicationExtension>() == null}")
@@ -422,7 +422,7 @@ abstract class Blueprint(
    * The method is responsible for enabling the code writer if the blueprint
    * is enabled, and setting the namespace and package name for the blueprint.
    */
-  open fun CommonExtension<*, *, *, *, *>.finalizeDsl() = Unit
+  open fun CommonExtension<*, *, *, *, *, *>.finalizeDsl() = Unit
 
   /**
    * Applies the blueprint to the project.

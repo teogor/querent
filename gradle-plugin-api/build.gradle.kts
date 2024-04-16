@@ -21,9 +21,7 @@ plugins {
 }
 
 dependencies {
-  // Xenoglot BoM
   api(platform(libs.teogor.xenoglot.bom))
-  // Xenoglot Libraries
   api(libs.teogor.xenoglot.core)
 
   api(libs.androidx.annotation)
@@ -34,8 +32,9 @@ dependencies {
 }
 
 winds {
-  mavenPublish {
-    displayName = "Gradle Plugin API"
-    name = "gradle-plugin-api"
+  moduleMetadata {
+    artifactDescriptor {
+      name = "Gradle Plugin API"
+    }
   }
 }

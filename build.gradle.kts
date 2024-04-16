@@ -1,16 +1,33 @@
+/*
+ * Copyright 2023 teogor (Teodor Grigor)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import com.diffplug.spotless.LineEnding
 import com.vanniktech.maven.publish.SonatypeHost
-import dev.teogor.winds.api.MavenPublish
-import dev.teogor.winds.api.getValue
-import dev.teogor.winds.api.model.Developer
-import dev.teogor.winds.api.model.LicenseType
-import dev.teogor.winds.api.model.createVersion
-import dev.teogor.winds.api.provider.Scm
-import dev.teogor.winds.gradle.tasks.impl.subprojectChildrens
-import dev.teogor.winds.gradle.utils.afterWindsPluginConfiguration
-import dev.teogor.winds.gradle.utils.attachTo
+import dev.teogor.winds.api.ArtifactIdFormat
+import dev.teogor.winds.api.License
+import dev.teogor.winds.api.NameFormat
+import dev.teogor.winds.api.Person
+import dev.teogor.winds.api.Scm
+import dev.teogor.winds.api.TicketSystem
+import dev.teogor.winds.api.model.DependencyType
+import dev.teogor.winds.ktx.createVersion
+import dev.teogor.winds.ktx.person
+import dev.teogor.winds.ktx.scm
+import dev.teogor.winds.ktx.ticketSystem
 import org.jetbrains.dokka.gradle.DokkaPlugin
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
   repositories {
@@ -19,7 +36,6 @@ buildscript {
   }
 }
 
-// Lists all plugins used throughout the project without applying them.
 plugins {
   alias(libs.plugins.jetbrains.kotlin.jvm) apply true
   alias(libs.plugins.jetbrains.kotlin.serialization) apply false
@@ -28,109 +44,79 @@ plugins {
   alias(libs.plugins.teogor.winds) apply true
   alias(libs.plugins.spotless) apply true
   alias(libs.plugins.vanniktech.maven) apply true
-}
-
-subprojectChildrens {
-  val javaVersion = JavaVersion.VERSION_17
-  java {
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
-  }
-
-  val compileKotlin: KotlinCompile by tasks
-  compileKotlin.kotlinOptions {
-    jvmTarget = javaVersion.toString()
-  }
-
-  val compileTestKotlin: KotlinCompile by tasks
-  compileTestKotlin.kotlinOptions {
-    jvmTarget = javaVersion.toString()
-  }
+  alias(libs.plugins.ben.manes.versions) apply true
+  alias(libs.plugins.littlerobots.version.catalog.update) apply true
 }
 
 winds {
-  buildFeatures {
-    mavenPublish = true
-
+  windsFeatures {
+    mavenPublishing = true
     docsGenerator = true
+    workflowSynthesizer = true
   }
 
-  mavenPublish {
-    displayName = "Querent"
-    name = "querent"
-
-    canBePublished = false
-
-    description =
-      "\uD83C\uDFD7\uFE0F Querent lays the groundwork for your project's resource management, fostering consistency and efficiency across your development workflow."
-
-    groupId = "dev.teogor.querent"
-    artifactIdElements = 1
-    url = "https://source.teogor.dev/querent"
-
-    version = createVersion(1, 0, 0) {
-      alphaRelease(2)
-    }
-
-    project.group = winds.mavenPublish.groupId ?: "undefined"
-    project.version = winds.mavenPublish.version ?: "undefined"
-
-    inceptionYear = 2023
-
-    sourceControlManagement(
-      Scm.Git(
-        owner = "teogor",
-        repo = "querent",
-      ),
-    )
-
-    addLicense(LicenseType.APACHE_2_0)
-
-    addDeveloper(TeogorDeveloper())
-  }
-
-  docsGenerator {
+  moduleMetadata {
     name = "Querent"
-    identifier = "querent"
-    alertOnDependentModules = true
-  }
-}
+    description = "\uD83C\uDFD7\uFE0F Querent lays the groundwork for your project's resource " +
+      "management, fostering consistency and efficiency across your development workflow."
 
-afterWindsPluginConfiguration { winds ->
-  project.group = winds.mavenPublish.groupId ?: "undefined"
-  project.version = winds.mavenPublish.version ?: "undefined"
+    yearCreated = 2023
 
-  if (!plugins.hasPlugin("com.gradle.plugin-publish")) {
-    val mavenPublish: MavenPublish by winds
-    if (mavenPublish.canBePublished) {
-      mavenPublishing {
-        publishToMavenCentral(SonatypeHost.S01)
-        signAllPublications()
+    websiteUrl = "https://source.teogor.dev/querent/"
+    apiDocsUrl = "https://source.teogor.dev/querent/html/"
 
-        @Suppress("UnstableApiUsage")
-        pom {
-          coordinates(
-            groupId = mavenPublish.groupId!!,
-            artifactId = mavenPublish.artifactId!!,
-            version = mavenPublish.version!!.toString(),
-          )
-          mavenPublish attachTo this
-        }
+    artifactDescriptor {
+      group = "dev.teogor.querent"
+      name = "Querent"
+      nameFormat = NameFormat.FULL
+      artifactIdFormat = ArtifactIdFormat.NAME_ONLY
+      version = createVersion(1, 0, 0) {
+        alphaRelease(3)
       }
     }
+
+    // Providing SCM (Source Control Management)
+    scm<Scm.GitHub> {
+      owner = "teogor"
+      repository = "querent"
+    }
+
+    // Providing Ticket System
+    ticketSystem<TicketSystem.GitHub> {
+      owner = "teogor"
+      repository = "querent"
+    }
+
+    // Providing Licenses
+    licensedUnder(License.Apache2())
+
+    // Providing Persons
+    person<Person.DeveloperContributor> {
+      id = "teogor"
+      name = "Teodor Grigor"
+      email = "open-source@teogor.dev"
+      url = "https://teogor.dev"
+      roles = listOf("Code Owner", "Developer", "Designer", "Maintainer")
+      timezone = "UTC+2"
+      organization = "Teogor"
+      organizationUrl = "https://github.com/teogor"
+    }
+  }
+
+  publishingOptions {
+    publish = false
+    enablePublicationSigning = true
+    optInForVanniktechPlugin = true
+    cascadePublish = true
+    sonatypeHost = SonatypeHost.S01
+  }
+
+  documentationBuilder {
+    htmlPath = "html/"
+    markdownNewlineSeparator = "  "
+    dependencyGatheringType = DependencyType.NONE
   }
 }
-
-data class TeogorDeveloper(
-  override val id: String = "teogor",
-  override val name: String = "Teodor Grigor",
-  override val email: String = "open-source@teogor.dev",
-  override val url: String = "https://teogor.dev",
-  override val roles: List<String> = listOf("Code Owner", "Developer", "Designer", "Maintainer"),
-  override val timezone: String = "UTC+2",
-  override val organization: String = "Teogor",
-  override val organizationUrl: String = "https://github.com/teogor",
-) : Developer
 
 val ktlintVersion = "0.50.0"
 
@@ -204,5 +190,16 @@ apiValidation {
 subprojects {
   if (!excludedProjects.contains(project.name)) {
     apply<DokkaPlugin>()
+  }
+}
+
+versionCatalogUpdate {
+  keep {
+    // keep versions without any library or plugin reference
+    keepUnusedVersions = true
+    // keep all libraries that aren't used in the project
+    keepUnusedLibraries = true
+    // keep all plugins that aren't used in the project
+    keepUnusedPlugins = true
   }
 }
